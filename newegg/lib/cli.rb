@@ -1,7 +1,7 @@
 class CLI 
 
 def run
-  Scraper.get_page
+  Scraper.scrape_deals
 end
 
 end
