@@ -5,8 +5,8 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-require_relative  "./newegg/version"
-require_relative './cli' 
-require_relative '../lib/newegg/scraper'
+require_relative  "../lib/newegg/version"
+require_relative '../lib/cli' 
+require_relative '../lib/scraper'
 
 

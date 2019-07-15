@@ -1,10 +1,8 @@
-require_relative '../config/environment'
-
-
 class CLI 
 
 def run
-  puts "the cli is running!"
+  Scraper.get_page
 end
 
 end
+
