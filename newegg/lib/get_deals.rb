@@ -8,11 +8,13 @@ class Deals
   end 
   
   def self.today
-    
+  self.scrape_deals
   end 
   
   def self.scrape_deals
     all << self.scrape_newegg
+    
+    all
   end 
     
   
