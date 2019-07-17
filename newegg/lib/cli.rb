@@ -1,7 +1,10 @@
 class CLI 
 
 def run
-  Scraper.scrape_deals
+  Deals.today
+  # Scraper.scrape_deals
+  
+  binding.pry
 end
 
 end
