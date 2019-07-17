@@ -1,7 +1,7 @@
 class CLI 
 
 def run
-  Deals.scrape_newegg
+  Deals.scrape_deals
   # Scraper.scrape_deals
   
   binding.pry

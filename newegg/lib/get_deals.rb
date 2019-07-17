@@ -3,15 +3,18 @@ class Deals
   
   @@all = []
   
-  # def initialize(name = nil, price = nil)
-  #   @name = name
-  #   @price = price
-  #   @@all << self
-  # end 
+  def self.all 
+    @@all
+  end 
   
   def self.today
     
   end 
+  
+  def self.scrape_deals
+    all << self.scrape_newegg
+  end 
+    
   
   def self.scrape_newegg
   doc = Nokogiri::HTML(open("https://www.newegg.com/DailyDeal?cm_sp=Homepage_Dailydeal-_--_-07152019"))
