@@ -3,20 +3,31 @@ class Deals
   
   @@all = []
   
-  def initialize(name = nil, price = nil)
-    @name = name
-    @price = price
-    @@all << self
-  end 
+  # def initialize(name = nil, price = nil)
+  #   @name = name
+  #   @price = price
+  #   @@all << self
+  # end 
   
   def self.today
-    doc = Nokogiri::HTML(open("https://www.newegg.com/DailyDeal?cm_sp=Homepage_Dailydeal-_--_-07152019"))
-    deal = self.new 
-    deal.name = doc.css('div.item-container').css('div.item-info').css('a.item-title')[0].text
-    deal.price = doc.css('li.price-current')[0].text.gsub(/[\s+ -]/, "")
-    
-    deal
     
   end 
+  
+  def self.scrape_newegg
+  doc = Nokogiri::HTML(open("https://www.newegg.com/DailyDeal?cm_sp=Homepage_Dailydeal-_--_-07152019"))
+  
+  doc.css('div.item-container').collect do |items|
+    
+  name = items.css('div.item-info').css('a.item-title').text
+  price = items.css('li.price-current').text.gsub(/[\s+ -]/, "")
+   
+   deal = self.new
+   deal.name = name 
+   deal.price = price
+   deal
+ end 
+end 
+  
+  
   
 end
